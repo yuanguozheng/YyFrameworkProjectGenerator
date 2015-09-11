@@ -1,0 +1,11 @@
+{
+  "name": "YyFrameworkProjectGenerator",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {
+    "art-template": "~3.0.3"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
