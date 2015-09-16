@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "dependencies": {
-    "art-template": "~3.0.3"
+    "art-template": "~3.0.3",
+    "moment": "^2.10.6"
   },
   "scripts": {
     "start": "node app.js"

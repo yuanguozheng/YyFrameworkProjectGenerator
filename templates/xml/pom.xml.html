@@ -6,31 +6,34 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.sourceDir>src/main/java</project.sourceDir>
-        <project.resourcesDir>src/main/webapp</project.resourcesDir>
     </properties>
 
-    <groupId>{{PackageName}}</groupId>
-    <artifactId>{{ProjectName}}</artifactId>
+    <groupId>{{package_name}}</groupId>
+    <artifactId>{{project_name}}</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
     <build>
-        <sourceDirectory>src/main/java</sourceDirectory>
+        <sourceDirectory>{{project_path.source}}</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>{{jre}}</source>
+                    <target>{{jre}}</target>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
-                    <warName>{{ProjectName}}</warName>
+                    <warName>{{project_name}}</warName>
+                    <webResources>
+                        <resource>
+                            <directory>{{project_path.web}}</directory>
+                        </resource>
+                    </webResources>
                 </configuration>
             </plugin>
         </plugins>
@@ -41,7 +44,7 @@
             <artifactId>YyFramework</artifactId>
             <version>3.0</version>
             <scope>system</scope>
-            <systemPath>${pom.basedir}/src/main/webapp/WEB-INF/lib/YyFramework-3.0.jar</systemPath>
+            <systemPath>${pom.basedir}/{{project_path.web}}/WEB-INF/lib/YyFramework-3.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -62,12 +65,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>commons-dbutils</groupId>
             <artifactId>commons-dbutils</artifactId>
             <version>1.6</version>
@@ -83,18 +80,6 @@
             <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
             <version>0.9.5.1</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.3</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
